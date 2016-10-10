@@ -147,7 +147,16 @@ NSString * const ID = @"cycleCell";
     _mainView = mainView;
 }
 
-
+#pragma mark -----my modify
+-(void)setBannerImageViewContentMode:(UIViewContentMode)bannerImageViewContentMode{
+    _bannerImageViewContentMode=bannerImageViewContentMode;
+    if (!self.backgroundImageView) {
+        UIImageView *bgImageView = [UIImageView new];
+        [self insertSubview:bgImageView belowSubview:self.mainView];
+        self.backgroundImageView = bgImageView;
+    }
+    self.backgroundImageView.contentMode=bannerImageViewContentMode;
+}
 #pragma mark - properties
 
 - (void)setPlaceholderImage:(UIImage *)placeholderImage
